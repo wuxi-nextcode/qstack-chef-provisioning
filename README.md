@@ -56,6 +56,8 @@ bundle exec chef-client -z provision/aws-minimal.rb provision/web-node.rb
 This assumes that your QStack credentials are specified in a profile called **qstack** in ~/.aws/credentials. Otherwise you need to modify the provision/qstack-minimal.rb.
 That file also contains the ec2_endpoint, flavor_id, image_id and possibly more config options which needs to be modified based on what QStack installation you are working against. These changes should be self explanatory.
 
+**NOTE** This currently does not work because of some problem with authentication.
+
 To provision an empty machine:
 ```
 bundle exec chef-client -z provision/qstack-minimal.rb provision/empty-node.rb
