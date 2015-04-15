@@ -41,13 +41,25 @@ bundle exec chef-client -z provision/vagrant-minimal.rb provision/web-node.rb
 ```
 
 ### AWS
-This assumes that your default profile for aws-cli contains your AWS credentials. Otherwise you need to modify the aws-minimal.rb file
+This assumes that your default profile for aws-cli contains your AWS credentials. Otherwise you need to modify the provision/aws-minimal.rb (an example is provided in the file).
 
 To provision an empty machine:
 ```
-bundle exec chef-client -z provision/vagrant-minimal.rb provision/empty-node.rb
+bundle exec chef-client -z provision/aws-minimal.rb provision/empty-node.rb
 ```
 To provision a web server machine:
 ```
-bundle exec chef-client -z provision/vagrant-minimal.rb provision/web-node.rb
+bundle exec chef-client -z provision/aws-minimal.rb provision/web-node.rb
+```
+
+### QStack
+This assumes that your QStack credentials are specified in a profile called **qstack** in ~/.aws/credentials. Otherwise you need to modify the provision/qstack-minimal.rb. That file also contains a reference to the ec2_endpoint which needs to be modified based on what QStack installation you are working against. These changes should be self explanatory.
+
+To provision an empty machine:
+```
+bundle exec chef-client -z provision/qstack-minimal.rb provision/empty-node.rb
+```
+To provision a web server machine:
+```
+bundle exec chef-client -z provision/qstack-minimal.rb provision/web-node.rb
 ```
